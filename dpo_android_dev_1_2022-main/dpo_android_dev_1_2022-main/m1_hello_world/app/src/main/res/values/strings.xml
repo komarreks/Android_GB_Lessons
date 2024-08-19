@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bus</string>
+    <string name="default_status">Все места свободны</string>
+    <string name="average_status">Осталось мест:</string>
+    <string name="warning_status">Пассажиров слишком много!</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="reset">Сброс</string>
+    <string name="counter_default">0</string>
+</resources>

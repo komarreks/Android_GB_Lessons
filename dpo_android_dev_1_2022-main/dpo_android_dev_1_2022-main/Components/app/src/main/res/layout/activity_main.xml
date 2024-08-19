@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:text="@string/header"
+        style="@style/TextStyle"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:progressDrawable="@drawable/circle_progress"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:indeterminateOnly="false"
+        android:max="10"
+        android:progress="10"
+        android:rotation="-90"/>
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/timer"
+        style="@style/TimerStyle"/>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="100dp"
+        android:stepSize="10"
+        android:valueFrom="10"
+        android:valueTo="60" />
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:visibility="visible"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="20dp"
+        style="@style/ButtonStyle"
+        android:text="@string/button_text_start"/>
+
+    <Button
+        android:id="@+id/buttonStop"
+        android:visibility="gone"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="20dp"
+        style="@style/ButtonStyle"
+        android:text="@string/button_text_stop"/>
+
+</FrameLayout>

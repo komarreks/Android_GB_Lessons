@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Учебное приложение</string>
+    <string name="testText">Текст для обучения</string>
+</resources>
