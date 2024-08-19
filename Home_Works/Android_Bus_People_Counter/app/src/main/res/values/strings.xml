@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BusPeoplesCounter</string>
+    <string name="empty_bus">Все места свободны</string>
+    <string name="full_bus">Пассажиров слишком много!!!</string>
+    <string name="places_left">Осталось мест:</string>
+    <string name="reset_button">сброс</string>
+</resources>
