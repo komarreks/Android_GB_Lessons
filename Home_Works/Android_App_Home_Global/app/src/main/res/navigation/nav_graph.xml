@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="ru.app.StartFragment"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_quizeFragment"
+            app:destination="@id/quizeFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizeFragment"
+        android:name="ru.app.QuizeFragment"
+        android:label="fragment_quize"
+        tools:layout="@layout/fragment_quize" >
+        <action
+            android:id="@+id/action_quizeFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="ru.app.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="countCorrectAnswers"
+            app:argType="integer" />
+        <argument
+            android:name="countQuestions"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_resultFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+</navigation>
