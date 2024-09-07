@@ -10,22 +10,13 @@ import androidx.fragment.app.FragmentResultOwner
 import androidx.navigation.fragment.findNavController
 import ru.app.databinding.FragmentResultBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "countCorrectAnswers"
-private const val ARG_PARAM2 = "countQuestions"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ResultFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ResultFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var countCorrectAnswers: Int? = null
     private var countQuestions: Int? = null
 
-    private lateinit var binding:FragmentResultBinding
+    private var _binding:FragmentResultBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,13 +30,18 @@ class ResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentResultBinding.inflate(inflater)
+        _binding = FragmentResultBinding.inflate(inflater)
 
         binding.toStartButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_startFragment)
         }
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     @SuppressLint("SetTextI18n")
@@ -55,16 +51,9 @@ class ResultFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ResultFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
+        const val ARG_PARAM1 = "countCorrectAnswers"
+        const val ARG_PARAM2 = "countQuestions"
+
         fun newInstance(param1: Int, param2: Int) =
             ResultFragment().apply {
                 arguments = Bundle().apply {
