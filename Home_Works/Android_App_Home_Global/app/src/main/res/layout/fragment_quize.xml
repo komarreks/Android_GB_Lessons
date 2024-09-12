@@ -36,30 +36,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/footer">
+
         <LinearLayout
+            android:id="@+id/question_block"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:rotation="0"
+            android:rotationX="0"
+            android:rotationY="0">
+
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/Theme.App.Question"
                 android:id="@+id/question"
+                style="@style/Theme.App.Question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ТекстВопроса">
-            </androidx.appcompat.widget.AppCompatTextView>
+                android:text="ТекстВопроса" />
+
             <RadioGroup
                 android:id="@+id/variants"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:id="@+id/var1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/var2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </RadioGroup>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -69,17 +78,18 @@
                     style="@style/Theme.App.Buttons"
                     android:layout_width="200sp"
                     android:layout_height="wrap_content"
-                    android:text="@string/nextButton"
-                    android:layout_gravity="end" />
+                    android:layout_gravity="end"
+                    android:text="@string/nextButton" />
 
                 <Button
                     android:id="@+id/finishButton"
                     style="@style/Theme.App.Buttons"
                     android:layout_width="200sp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:alpha="0"
                     android:text="@string/resultButton"
-                    android:visibility="invisible"
-                    android:layout_gravity="end" />
+                    android:visibility="invisible" />
             </FrameLayout>
         </LinearLayout>
 

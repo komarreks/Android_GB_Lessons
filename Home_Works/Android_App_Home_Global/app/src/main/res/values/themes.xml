@@ -5,6 +5,8 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:colorPrimary">@color/black</item>
         <item name="colorSecondary">@color/nude</item>
+
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="Theme.App" parent="Base.Theme.App" />

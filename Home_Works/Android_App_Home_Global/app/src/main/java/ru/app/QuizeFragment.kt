@@ -1,12 +1,16 @@
 package ru.app
 
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import androidx.transition.Slide
+import androidx.transition.Transition
 import ru.app.databinding.FragmentQuizeBinding
 import ru.app.quizemodel.QuizeQuestion
 
@@ -25,7 +29,6 @@ class QuizeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentQuizeBinding.inflate(inflater)
-
         return binding!!.root
     }
 
@@ -42,12 +45,42 @@ class QuizeFragment : Fragment() {
         _binding = null
     }
 
+    fun animateNextButton(alpha: Float){
+        _binding!!.nextButton.animate().apply {
+            alpha(alpha)
+            duration = 1000
+        }.start()
+    }
+
+    fun animateQuestionBlock(){
+        _binding!!.questionBlock.rotationX = 90f
+
+        _binding!!.questionBlock.animate().apply {
+            rotationX(0f)
+            duration = 1000
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+    }
+
+    fun animateFinishButton(){
+        _binding!!.finishButton.translationX = -200f
+
+        _binding!!.finishButton.animate().apply {
+            translationX(0f)
+            alpha(1f)
+            duration = 1000
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+    }
+
     fun loadQuestion(){
         _binding!!.question.text = questions[currentStep].question()
         _binding!!.var1.text = questions[currentStep].answers()[0]
         _binding!!.var2.text = questions[currentStep].answers()[1]
 
         _binding!!.nextButton.isEnabled = false
+        _binding!!.nextButton.alpha = 0f
+        animateQuestionBlock()
     }
 
     fun initActionsRadioButtons(){
@@ -55,6 +88,7 @@ class QuizeFragment : Fragment() {
             if (isChecked) {
                 currentAnswer = 0
                 _binding!!.nextButton.isEnabled = true
+                animateNextButton(1f)
             }
         }
 
@@ -62,6 +96,7 @@ class QuizeFragment : Fragment() {
             if (isChecked) {
                 currentAnswer = 1
                 _binding!!.nextButton.isEnabled = true
+                animateNextButton(1f)
             }
         }
     }
@@ -76,6 +111,7 @@ class QuizeFragment : Fragment() {
                 _binding!!.variants.isVisible = false
                 _binding!!.nextButton.isVisible = false
                 _binding!!.finishButton.isVisible = true
+                animateFinishButton()
             }else{
                 _binding!!.variants.clearCheck()
                 currentStep++

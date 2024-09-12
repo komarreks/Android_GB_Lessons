@@ -26,6 +26,9 @@
         android:textAppearance="@style/Theme.App.Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hallo_image" />
+        app:layout_constraintTop_toBottomOf="@id/hallo_image"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/ripple"/>
     />
 </androidx.constraintlayout.widget.ConstraintLayout>

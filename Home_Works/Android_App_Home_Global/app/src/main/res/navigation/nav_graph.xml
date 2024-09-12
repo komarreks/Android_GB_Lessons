@@ -12,6 +12,7 @@
         <action
             android:id="@+id/action_startFragment_to_quizeFragment"
             app:destination="@id/quizeFragment"
+            app:enterAnim="@anim/from_left_animation"
             app:popUpTo="@id/startFragment" />
     </fragment>
     <fragment
@@ -22,6 +23,7 @@
         <action
             android:id="@+id/action_quizeFragment_to_resultFragment"
             app:destination="@id/resultFragment"
+            app:enterAnim="@anim/from_right_animation"
             app:popUpTo="@id/startFragment" />
     </fragment>
     <fragment
@@ -38,6 +40,7 @@
         <action
             android:id="@+id/action_resultFragment_to_startFragment"
             app:destination="@id/startFragment"
+            app:exitAnim="@anim/to_up_animation"
             app:popUpTo="@id/startFragment" />
     </fragment>
 </navigation>

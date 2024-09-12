@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import ru.app.databinding.FragmentStartBinding
 
@@ -18,10 +19,6 @@ class StartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentStartBinding.inflate(inflater)
-
-        binding!!.startButton.setOnClickListener {
-
-        }
 
         return binding!!.root
     }
