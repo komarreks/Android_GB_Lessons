@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import androidx.fragment.app.FragmentResultOwner
 import androidx.navigation.fragment.findNavController
 import ru.app.databinding.FragmentResultBinding
 
@@ -50,13 +49,13 @@ class ResultFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.resultLabel.text = "Верно $countCorrectAnswers/$countQuestions"
+        binding.resultLabel.text = "${R.string.right} $countCorrectAnswers/$countQuestions"
 
-        var scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.5f,1f)
-        var scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.5f,1f)
+        val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.5f,1f)
+        val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.5f,1f)
 
         ObjectAnimator.ofPropertyValuesHolder(binding.yourResultLabel, scaleX, scaleY).apply {
-            duration = 1000
+            duration = R.integer.base_duration.toLong()
             interpolator = AccelerateDecelerateInterpolator()
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.RESTART
@@ -64,7 +63,7 @@ class ResultFragment : Fragment() {
         }
 
         ObjectAnimator.ofPropertyValuesHolder(binding.toStartButton, scaleX, scaleY).apply {
-            duration = 1000
+            duration = R.integer.base_duration.toLong()
             interpolator = AccelerateDecelerateInterpolator()
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.RESTART

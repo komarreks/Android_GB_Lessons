@@ -31,4 +31,19 @@
         android:focusable="true"
         android:background="@drawable/ripple"/>
     />
+
+    <Button
+        android:id="@+id/date_button"
+        style="@style/Theme.App.Buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_button"
+        android:textAppearance="@style/Theme.App.Text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/hallo_image"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/ripple"/>
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package ru.app
 
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +8,6 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
-import androidx.transition.Slide
-import androidx.transition.Transition
 import ru.app.databinding.FragmentQuizeBinding
 import ru.app.quizemodel.QuizeQuestion
 
@@ -22,14 +19,14 @@ class QuizeFragment : Fragment() {
     private var currentAnswer = -1
 
     private var _binding:FragmentQuizeBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentQuizeBinding.inflate(inflater)
-        return binding!!.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,80 +42,80 @@ class QuizeFragment : Fragment() {
         _binding = null
     }
 
-    fun animateNextButton(alpha: Float){
-        _binding!!.nextButton.animate().apply {
+    private fun animateNextButton(alpha: Float){
+        binding.nextButton.animate().apply {
             alpha(alpha)
-            duration = 1000
+            duration = R.integer.base_duration.toLong()
         }.start()
     }
 
-    fun animateQuestionBlock(){
-        _binding!!.questionBlock.rotationX = 90f
+    private fun animateQuestionBlock(){
+        binding.questionBlock.rotationX = 90f
 
-        _binding!!.questionBlock.animate().apply {
+        binding.questionBlock.animate().apply {
             rotationX(0f)
-            duration = 1000
+            duration = R.integer.base_duration.toLong()
             interpolator = AccelerateDecelerateInterpolator()
         }
     }
 
-    fun animateFinishButton(){
+    private fun animateFinishButton(){
         _binding!!.finishButton.translationX = -200f
 
         _binding!!.finishButton.animate().apply {
             translationX(0f)
             alpha(1f)
-            duration = 1000
+            duration = R.integer.base_duration.toLong()
             interpolator = AccelerateDecelerateInterpolator()
         }
     }
 
-    fun loadQuestion(){
-        _binding!!.question.text = questions[currentStep].question()
-        _binding!!.var1.text = questions[currentStep].answers()[0]
-        _binding!!.var2.text = questions[currentStep].answers()[1]
+    private fun loadQuestion(){
+        binding.question.text = questions[currentStep].question()
+        binding.var1.text = questions[currentStep].answers()[0]
+        binding.var2.text = questions[currentStep].answers()[1]
 
-        _binding!!.nextButton.isEnabled = false
-        _binding!!.nextButton.alpha = 0f
+        binding.nextButton.isEnabled = false
+        binding.nextButton.alpha = 0f
         animateQuestionBlock()
     }
 
-    fun initActionsRadioButtons(){
-        _binding!!.var1.setOnCheckedChangeListener { button, isChecked ->
+    private fun initActionsRadioButtons(){
+        binding.var1.setOnCheckedChangeListener { button, isChecked ->
             if (isChecked) {
                 currentAnswer = 0
-                _binding!!.nextButton.isEnabled = true
+                binding.nextButton.isEnabled = true
                 animateNextButton(1f)
             }
         }
 
-        _binding!!.var2.setOnCheckedChangeListener { button, isChecked ->
+        binding.var2.setOnCheckedChangeListener { button, isChecked ->
             if (isChecked) {
                 currentAnswer = 1
-                _binding!!.nextButton.isEnabled = true
+                binding.nextButton.isEnabled = true
                 animateNextButton(1f)
             }
         }
     }
 
-    fun initClickButtons(){
-        _binding!!.nextButton.setOnClickListener {
+    private fun initClickButtons(){
+        binding.nextButton.setOnClickListener {
             if (currentAnswer == questions[currentStep].correctAnswer()){
                 countCorrectAnswers++
             }
             if (currentStep + 1 == questions.size){
-                _binding!!.question.text = resources.getString(R.string.finish_label_go_to_results)
-                _binding!!.variants.isVisible = false
-                _binding!!.nextButton.isVisible = false
-                _binding!!.finishButton.isVisible = true
+                binding.question.text = resources.getString(R.string.finish_label_go_to_results)
+                binding.variants.isVisible = false
+                binding.nextButton.isVisible = false
+                binding.finishButton.isVisible = true
                 animateFinishButton()
             }else{
-                _binding!!.variants.clearCheck()
+                binding.variants.clearCheck()
                 currentStep++
                 loadQuestion()
             }
         }
-        _binding!!.finishButton.setOnClickListener {
+        binding.finishButton.setOnClickListener {
             val bundle = Bundle().apply {
                 putInt(ResultFragment.ARG_PARAM1, countCorrectAnswers)
                 putInt(ResultFragment.ARG_PARAM2, questions.size)
@@ -127,7 +124,7 @@ class QuizeFragment : Fragment() {
         }
     }
 
-    fun initQuestions(){
+    private fun initQuestions(){
         questions = mutableListOf()
         questions.add(
             QuizeQuestion(resources.getString(R.string.question_1),

@@ -51,7 +51,7 @@
                 style="@style/Theme.App.Question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ТекстВопроса" />
+                android:text="@string/stub" />
 
             <RadioGroup
                 android:id="@+id/variants"
