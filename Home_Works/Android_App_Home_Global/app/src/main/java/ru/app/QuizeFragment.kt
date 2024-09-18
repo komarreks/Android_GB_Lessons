@@ -45,7 +45,7 @@ class QuizeFragment : Fragment() {
     private fun animateNextButton(alpha: Float){
         binding.nextButton.animate().apply {
             alpha(alpha)
-            duration = R.integer.base_duration.toLong()
+            duration = resources.getInteger(R.integer.base_duration).toLong()
         }.start()
     }
 
@@ -54,18 +54,18 @@ class QuizeFragment : Fragment() {
 
         binding.questionBlock.animate().apply {
             rotationX(0f)
-            duration = R.integer.base_duration.toLong()
+            duration = resources.getInteger(R.integer.base_duration).toLong()
             interpolator = AccelerateDecelerateInterpolator()
-        }
+        }.start()
     }
 
     private fun animateFinishButton(){
-        _binding!!.finishButton.translationX = -200f
+        binding.finishButton.translationX = -200f
 
-        _binding!!.finishButton.animate().apply {
+        binding.finishButton.animate().apply {
             translationX(0f)
             alpha(1f)
-            duration = R.integer.base_duration.toLong()
+            duration = resources.getInteger(R.integer.base_duration).toLong()
             interpolator = AccelerateDecelerateInterpolator()
         }
     }

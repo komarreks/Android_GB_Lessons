@@ -55,7 +55,7 @@ class ResultFragment : Fragment() {
         val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.5f,1f)
 
         ObjectAnimator.ofPropertyValuesHolder(binding.yourResultLabel, scaleX, scaleY).apply {
-            duration = R.integer.base_duration.toLong()
+            duration = resources.getInteger(R.integer.base_duration).toLong()
             interpolator = AccelerateDecelerateInterpolator()
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.RESTART
@@ -63,7 +63,7 @@ class ResultFragment : Fragment() {
         }
 
         ObjectAnimator.ofPropertyValuesHolder(binding.toStartButton, scaleX, scaleY).apply {
-            duration = R.integer.base_duration.toLong()
+            duration = resources.getInteger(R.integer.base_duration).toLong()
             interpolator = AccelerateDecelerateInterpolator()
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.RESTART
