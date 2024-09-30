@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Timer</string>
+    <string name="header">Countdown Timer</string>
+    <string name="defoult_counter_value">20</string>
+    <string name="text_start">START</string>
+    <string name="text_stop">STOP</string>
+    <string name="text_resume">RESUME</string>
+    <string name="reset_text">RESET</string>
+    <string name="timer_is_done">THE TIMER IS COMPLETED!!!</string>
+    <string name="timer_is_stopped">THE TIMER IS STOPPED…</string>
+</resources>

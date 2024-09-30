@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="min_value_slider">0</integer>
+    <integer name="max_value_slider">100</integer>
+    <integer name="step_slider">10</integer>
+    <integer name="defoult_counter_value">20</integer>
+</resources>

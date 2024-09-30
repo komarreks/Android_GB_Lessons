@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Timer" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Timer" parent="Base.Theme.Timer">
+        <item name="android:fontFamily">@font/rubikregular</item>
+    </style>
+
+    <style name="TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:fontFamily">@font/rubikmedium</item>
+    </style>
+
+    <style name="Buttons" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:background">@drawable/button_selector</item>
+    </style>
+    
+    <style name="large_text">
+        <item name="android:textSize">35sp</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+    <style name="counter_text" parent="large_text">
+        <item name="android:textSize">80sp</item>
+    </style>
+</resources>
