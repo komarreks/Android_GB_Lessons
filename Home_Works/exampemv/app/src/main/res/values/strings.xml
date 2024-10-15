@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">exampemv</string>
+    <string name="search_hint">TEXT FOR SEARCH</string>
+    <string name="result_search_default">THERE IS RESULT OF SEARCH</string>
+    <string name="button_label">SEARCH</string>
+    <string name="searhing">SEARHING...</string>
+    <string name="result_search_text">NOTHING WAS FOUND FOR THR QUERY</string>
+</resources>
