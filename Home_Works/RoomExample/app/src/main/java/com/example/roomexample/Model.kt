@@ -20,15 +20,14 @@ class Model():ViewModel() {
     }
 
     fun add(letter: Letter){
-
         viewModelScope.launch {
             val letterInDb = letterDao.getLetter(letter.word)
 
             if (letterInDb == null){
                 letterDao.saveLetter(letter)
             }else{
-                letter.count += 1
-                letterDao.updateLetter(letter)
+                letterInDb.count += 1
+                letterDao.updateLetter(letterInDb)
             }
         }
     }
