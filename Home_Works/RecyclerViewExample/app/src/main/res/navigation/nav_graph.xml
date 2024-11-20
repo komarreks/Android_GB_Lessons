@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listPhotoFragment">
+
+    <fragment
+        android:id="@+id/onePhotoFragment"
+        android:name="com.example.recyclerviewexample.prersentation.OnePhotoFragment"
+        android:label="fragment_one_photo"
+        tools:layout="@layout/fragment_one_photo" />
+    <fragment
+        android:id="@+id/listPhotoFragment"
+        android:name="com.example.recyclerviewexample.prersentation.ListPhotoFragment"
+        android:label="ListPhotoFragment" >
+        <action
+            android:id="@+id/action_listPhotoFragment_to_onePhotoFragment"
+            app:destination="@id/onePhotoFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/listPhotoFragment" />
+        <argument
+            android:name="photo"
+            app:argType="com.example.recyclerviewexample.model.Camera">
+
+        </argument>
+    </fragment>
+</navigation>

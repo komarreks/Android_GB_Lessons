@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DagerExample2</string>
+    <string name="refresh_button_label">REFRESH</string>
+</resources>

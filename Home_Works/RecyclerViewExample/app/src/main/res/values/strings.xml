@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RecyclerViewExample</string>
+    <string name="rover">Rover: Text</string>
+    <string name="camera">Camera: Text</string>
+    <string name="sol">Sol: Text</string>
+    <string name="date">Date: Text</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
