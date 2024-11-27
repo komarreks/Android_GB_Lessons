@@ -42,12 +42,6 @@ class GallaryFragment : Fragment() {
 
         binding.allPhoto.adapter = photoAdapter
 
-        binding.allPhoto.layoutManager = GridLayoutManager(requireContext(),3,RecyclerView.VERTICAL,false)
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            model.photos.collect{photos ->
-//                photoAdapter.update(photos)
-//            }
-//        }
         model.photos.onEach {
             photoAdapter.update(it)
         }.launchIn(viewLifecycleOwner.lifecycleScope)

@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    //alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -55,8 +56,8 @@ dependencies {
     implementation(libs.androidx.camera.view)
     implementation(libs.androidx.camera.extensions)
     implementation(libs.glide)
-    kapt(libs.compiler)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.rxjava2)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -22,6 +22,7 @@ cameraView = "1.5.0-alpha03"
 cameraExtensions = "1.4.0"
 glide = "5.0.0-rc01"
 compiler = "5.0.0-rc01"
+kspPlugin = "1.9.0-1.0.12"
 
 
 [libraries]
@@ -51,4 +52,5 @@ compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref="kspPlugin" }
 
