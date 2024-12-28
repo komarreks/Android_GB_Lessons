@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.rxjava)
     implementation(libs.rxandroid)
+    implementation(libs.adapter.rxjava3)
     kapt(libs.dagger.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

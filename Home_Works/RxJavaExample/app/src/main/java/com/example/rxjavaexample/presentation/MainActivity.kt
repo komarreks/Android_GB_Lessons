@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private val adapter: CountryAdapter = CountryAdapter()
     private val compositeDisposable = CompositeDisposable()
 
-    @SuppressLint("CheckResult")
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,14 +25,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.recycler.adapter = adapter
 
+        setContentView(binding.root)
+
         model.getCountryes()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                {adapter.setComplexData(it)},
-                {Toast.makeText(this, "ошибка загрузки", Toast.LENGTH_LONG).show()}
-            ).also { compositeDisposable.add(it) }
-
-        setContentView(binding.root)
+                {adapter.setComplexData(it.data)
+                binding.text.text = it.data.toString()},
+                {Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()}
+            ).also {compositeDisposable.add(it)}
     }
 
     override fun onDestroy() {
